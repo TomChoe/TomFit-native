@@ -8,6 +8,7 @@ workoutlogRouter.route('/profile/:id')
 	.get(workoutlogs.getLogs)
 
 workoutlogRouter.route('/:id')
-	.get(workoutlogs.getLog)
+	.put(workoutlogs.updateLog)
+	.delete(workoutlogs.deleteLog)
 
 module.exports = workoutlogRouter

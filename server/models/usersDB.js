@@ -17,7 +17,6 @@ module.exports = {
 	},
 
 	authenticateByUsername(username) {
-		console.log('inside models for user login', username)
 		return db.one(`SELECT * FROM users WHERE username = $/username/ AND password = $/password/`, username)
 	},
 

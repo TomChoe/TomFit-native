@@ -14,18 +14,18 @@ module.exports = {
 		})
 	},
 
-	getLog(req, res) {
-		logsDb.findOne(req.params.id)
-		.then((log) => {
-			res.json({
-				message: 'ok',
-				data: log
-			})
-		})
-		.catch(err => {
-			console.log('error getting one', err)
-		})
-	},
+	// getLog(req, res) {
+	// 	logsDb.findOne(req.params.id)
+	// 	.then((log) => {
+	// 		res.json({
+	// 			message: 'ok',
+	// 			data: log
+	// 		})
+	// 	})
+	// 	.catch(err => {
+	// 		console.log('error getting one', err)
+	// 	})
+	// },
 
 	getLogs(req, res) {
 		logsDB.findAllByUser(req.params.id)
@@ -38,6 +38,24 @@ module.exports = {
 		.catch((err) => {
 			console.log('error retrieving logs', err)
 		})
-	}
+	},
 
+	updateLog(req, res) {
+		logsDB.update(req.body)
+		.then((log) => {
+			res.json({
+				message: 'ok',
+				data: log
+			})
+		})
+		.catch(err => {
+			console.log('error in updating log', err)
+		})
+	},
+
+	deleteLog(req, res) {
+		logsDB.delete(req.params.id)
+		.then(() => console.log('deleted log'))
+		.catch(err => console.log('error deleting log', err))
+	}
 }

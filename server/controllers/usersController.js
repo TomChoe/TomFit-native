@@ -15,7 +15,6 @@ module.exports = {
 	},
 
 	loginUser(req, res) {
-		console.log('hittin user login', req.body)
 		userDB.authenticateByUsername(req.body)
 		.then(user => {
 			res.json({
