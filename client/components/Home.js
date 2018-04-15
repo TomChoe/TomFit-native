@@ -1,49 +1,36 @@
-import React, {Component} from 'react'
-import {View, TextInput, Button} from 'react-native'
-import Services from '../services/apiServices'
+import React from 'react'
+import { View, Text, Button, StyleSheet} from 'react-native'
 
-
-export default class Home extends Component {
+export default class Home extends React.Component {
 	constructor(props){
-	super(props)
-	this.state = {
-		username: '',
-		password: ''
+		super(props);
 	}
-	this.handleSubmit = this.handleSubmit.bind(this)
-}
 
-handleSubmit(){
-	console.log('hitting handle submit')
-
-	Services.loginUser(this.state)
-	.then(results => {
-		console.log('this is user results', results)
-	})
-	.catch(err => {
-		console.log(err)
-	})
-
-}
-
-render(){
-	return(
-			<View>
-			<TextInput 
-				style={{marginTop: 150, marginLeft: 150}}
-				placeholder='username'
-				onChangeText={(text) => this.setState({username: text})}
-			/>
-			<TextInput 
-				style={{marginTop: 200, marginLeft: 150}}
-				placeholder='password'
-				onChangeText={(text) => this.setState({password: text})}
-			/>
-				<Button 
-				    title='submit Data'
-				    onPress={this.handleSubmit}
-				/>
+	render(){
+		return (
+			<View style={styles.container}>
+				<Text>
+					{`\n\nTomFit`}
+				</Text>
+				  <View style={styles.container}>
+				    <Button
+				    	title="Log In"
+				    	onPress={() => this.props.navigation.navigate('Login')}
+				    />
+				    <Button
+				    	title="Sign Up"
+				    	onPress={() => this.props.navigation.navigate("Signup")}
+				    />    
+				  </View>
 			</View>
-			)
+		)
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	}
+});

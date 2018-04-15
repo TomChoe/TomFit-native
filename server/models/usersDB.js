@@ -2,8 +2,8 @@ const db = require('../config/connection');
 
 module.exports = {
 	createUser(user) {
-		return db.one(`INSERT INTO users (username, password, age, weight, height)
-					   VALUES ($/username/, $/password/, $/age/, $/weight/, $/height/
+		return db.one(`INSERT INTO users (username, password, age, weight, height) 
+					   VALUES ($/username/, $/password/, $/age/, $/weight/, $/height/)
 					   RETURNING *`, user)
 	},
 

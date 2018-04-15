@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.9.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js dev
+  /usr/local/Cellar/node/9.9.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js de
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/tomchoe/.rbenv/shims:/Users/tomchoe/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tomchoe/bin
@@ -18,19 +18,20 @@ npm manifest:
     "name": "server",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "dependencies": {
       "body-parser": "^1.18.2",
       "ejs": "^2.5.8",
       "express": "^4.16.3",
       "morgan": "^1.9.0",
       "mvc-setup": "^1.1.0",
-      "dev": "nodemon app.js",
+      "nodemon": "^1.17.3",
       "pg-promise": "^8.2.3"
     },
     "devDependencies": {},
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "nodemon app.js"
     },
     "keywords": [],
     "author": "",
@@ -44,7 +45,7 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: Command "dev" not found.
+  Error: Command "de" not found. Did you mean "dev"?
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)

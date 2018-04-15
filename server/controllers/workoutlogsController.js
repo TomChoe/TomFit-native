@@ -14,8 +14,21 @@ module.exports = {
 		})
 	},
 
+	getLog(req, res) {
+		logsDb.findOne(req.params.id)
+		.then((log) => {
+			res.json({
+				message: 'ok',
+				data: log
+			})
+		})
+		.catch(err => {
+			console.log('error getting one', err)
+		})
+	},
+
 	getLogs(req, res) {
-		logsDB.findAll()
+		logsDB.findAllByUser(req.params.id)
 		.then((logs) => {
 			res.json({
 				message: 'ok',

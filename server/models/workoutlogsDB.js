@@ -1,12 +1,15 @@
 const db = require('../config/connection');
 
 module.exports = {
-	findAll() {
-		return db.any('SELECT * FROM workoutlogs ORDER BY id ASC')
+	// findAll() {
+	// 	return db.any('SELECT * FROM workoutlogs ORDER BY id ASC')
+	// },
+	findOne(id) {
+		return db.one(`SELECT * FROM workoutlogs WHERE id=$1`, id)
 	},
 
-	findOne(id) {
-		return db.one(`SELECT * FROM workoutlogs WHERE id = $1`, id)
+	findAllByUser(user) {
+		return db.any(`SELECT * FROM workoutlogs WHERE user_id=$1`, user)
 	},
 
 	saveLog(log) {
