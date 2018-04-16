@@ -55,7 +55,11 @@ module.exports = {
 
 	deleteLog(req, res) {
 		logsDB.delete(req.params.id)
-		.then(() => console.log('deleted log'))
+		.then(log => {
+			res.json({
+				message: 'deleted',
+			})
+		})
 		.catch(err => console.log('error deleting log', err))
 	}
 }

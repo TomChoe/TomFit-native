@@ -28,6 +28,7 @@ module.exports = {
 	},
 
 	delete(id) {
+		
 		return db.none(`DELETE FROM workoutlogs WHERE id=$1`, id)
 	}
 }
